@@ -1,0 +1,30 @@
+Distribution of user stories:
+user story 7 -- Anar
+user story 8 -- Slava
+user story 9 -- Derya & Malika
+user story 10 -- Nino & Dania
+user story 11 -- Sohiba & Shirina
+
+
+Attention team members!!!
+- you WON'T need to create your feature file under resources, it is already created, please make sure to work on your
+own feature file:
+user story 7 -- employment-income.feature
+user story 8 -- credit-report.feature
+user story 9 -- e-consent.feature
+user story 10 -- reviewing-application.feature
+user story 11 -- tracking-applications.feature
+
+
+- once you are in your feature file, start creating scenarios using Given When Then structure (case sensitive), then
+RUN the features, COPY the result, PASTE into your own step definition class that YOU are going to create under
+stepDefinitions package. after pasting, keep the annotations and methods, delete the rest. Make sure to import the
+annotations.
+
+- ALWAYS run your test cases through RUNNERS class
+
+- similar to testNG framework, we will use PAGES package for our locators and webElements and reusable methods
+
+link: https://github.com/NinoSdet/duobank-BDD2-TeamA.git
+
+
