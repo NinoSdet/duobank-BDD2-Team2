@@ -6,9 +6,9 @@ Feature: Reviewing-Application feature
   Once I have made any necessary changes, I want to be able to submit the application.
 
   Background: Common steps for all scenarios in Reviewing Application page
-    Given the user is on the sign-up page
-    When the user enters valid username password and clicks on the sign-in button
-    And the user is redirected to the dashboard page
+    Given the user is on the sign-up pageR
+    When the user enters valid username password and clicks on the sign-in buttonR
+    And the user is redirected to the dashboard pageR
     And clicks mortgage application button
     And the user fills out all required fields in previous sections
     Then the user is redirected to the Summary page

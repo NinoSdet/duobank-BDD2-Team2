@@ -11,11 +11,11 @@ import java.util.List;
 
 public class ReviewingApplicationStepDefs {
 
-    @Given("the user is on the sign-up page")
+    @Given("the user is on the sign-up pageR")
     public void the_user_is_on_the_sign_up_page() {
 
     }
-    @When("the user enters valid username password and clicks on the sign-in button")
+    @When("the user enters valid username password and clicks on the sign-in buttonR")
     public void the_user_enters_valid_username_password_and_clicks_on_the_sign_in_button() {
         ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
         reviewingApplicationPage.signIn();
@@ -23,7 +23,7 @@ public class ReviewingApplicationStepDefs {
 
 
     }
-    @When("the user is redirected to the dashboard page")
+    @When("the user is redirected to the dashboard pageR")
     public void the_user_is_redirected_to_the_dashboard_page() {
 
     }
