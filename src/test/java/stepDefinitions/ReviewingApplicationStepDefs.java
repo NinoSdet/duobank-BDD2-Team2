@@ -21,6 +21,7 @@ public class ReviewingApplicationStepDefs {
         reviewingApplicationPage.signIn();
         reviewingApplicationPage.mortgageApplicationAccess();
 
+
     }
     @When("the user is redirected to the dashboard page")
     public void the_user_is_redirected_to_the_dashboard_page() {
@@ -36,6 +37,11 @@ public class ReviewingApplicationStepDefs {
     public void the_user_fills_out_all_required_fields_in_previous_sections() {
     ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
     reviewingApplicationPage.fillingOutPreApproval();
+    reviewingApplicationPage.fillingOutPersonalInfo();
+    reviewingApplicationPage.fillingExpenses();
+    reviewingApplicationPage.fillingEmploymentAndIncome();
+    reviewingApplicationPage.fillingCreditReport();
+    reviewingApplicationPage.fillingOutEconsent();
 
     }
     @Then("the user is redirected to the Summary page")
@@ -47,7 +53,9 @@ public class ReviewingApplicationStepDefs {
 
     }
     @Then("the user can see the text {string}")
-    public void the_user_can_see_the_text(String string) {
+    public void the_user_can_see_the_text(String expectedPageTitle) {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+//        Assert.assertEquals(expectedPageTitle, reviewingApplicationPage.getApplicationSubmittedConfirmation().getText());
 
     }
 
