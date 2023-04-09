@@ -13,10 +13,10 @@ Feature: Reviewing-Application feature
     And the user fills out all required fields in previous sections
     Then the user is redirected to the Summary page
 
-  @reviewingApplicationE
+  @reviewingApplication
   Scenario: The Summary page should be accessible from the main application flow
   When the user is on summary page
-  Then the user can see the text "Please review and if needed edit your application details"
+  Then the user can see the text "PreApproval Inquiry"
 
   @reviewingApplication
   Scenario: The Summary page should display all the information the user has previously entered
@@ -56,12 +56,12 @@ Feature: Reviewing-Application feature
     Then the user should be able to return to the Summary page at any time
     Examples:
       |section              |
-      |PREAPPROVAL INQUIRY	|
-      |PERSONAL DETAILS		|
-      |EXPENSES	            |
-      |EMPLOYMENT & INCOME	|
-      |ORDER CREDIT         |
-      |ECONSENT	            |
+      |PreApproval Details	|
+      |Personal Information		|
+      |Expenses	            |
+      |Employment and Income	|
+      |Credit Report         |
+      |eConsent	            |
 
   @reviewingApplication
   Scenario: The Summary page should include a Submit button that the user can click once they have reviewed and edited all sections of the application.
