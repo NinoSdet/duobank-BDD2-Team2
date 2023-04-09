@@ -6,7 +6,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.ReviewingApplicationPage;
+import utils.SeleniumUtils;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ReviewingApplicationStepDefs {
@@ -55,7 +58,8 @@ public class ReviewingApplicationStepDefs {
     @Then("the user can see the text {string}")
     public void the_user_can_see_the_text(String expectedPageTitle) {
         ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
-//        Assert.assertEquals(expectedPageTitle, reviewingApplicationPage.getApplicationSubmittedConfirmation().getText());
+        SeleniumUtils.waitFor(2);
+        Assert.assertEquals(expectedPageTitle, reviewingApplicationPage.getPreApprovalInquiryLabel().getText());
 
     }
 
@@ -70,7 +74,10 @@ public class ReviewingApplicationStepDefs {
 
     @Then("the user can see that each is labeled and separated from the other sections")
     public void the_user_can_see_that_each_is_labeled_and_separated_from_the_other_sections(List<String> dataTable) {
-
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        SeleniumUtils.waitFor(2);
+        List <String> actualLabels = reviewingApplicationPage.getSectionHeaders();
+        Assert.assertTrue(Collections.indexOfSubList(actualLabels,dataTable) !=-1);
 
     }
 
@@ -80,7 +87,9 @@ public class ReviewingApplicationStepDefs {
 
     @Then("the user can see and click the edit button for each section so the user can make changes to that section")
     public void the_user_can_see_and_click_the_edit_button_for_each_section_so_the_user_can_make_changes_to_that_section() {
-
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        SeleniumUtils.waitFor(2);
+        Assert.assertEquals(Collections.nCopies(6,"Edit"), reviewingApplicationPage.getAllEditButtonsText());
     }
 
 
@@ -91,6 +100,12 @@ public class ReviewingApplicationStepDefs {
     }
     @Then("the user redirected to the relevant page to make any necessary changes")
     public void the_user_redirected_to_the_relevant_page_to_make_any_necessary_changes() {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        SeleniumUtils.waitFor(2);
+        reviewingApplicationPage.getEConsentEditButton().click();
+        reviewingApplicationPage.getEconsentFirstName().clear();
+        reviewingApplicationPage.getEconsentFirstName().sendKeys("John");
+        Assert.assertEquals("John", reviewingApplicationPage.getEconsentFirstName().getAttribute("value"));
 
     }
 
@@ -102,18 +117,34 @@ public class ReviewingApplicationStepDefs {
     }
     @Then("the user should be able to return to the Summary page and see the updated information for that section")
     public void the_user_should_be_able_to_return_to_the_summary_page_and_see_the_updated_information_for_that_section() {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        SeleniumUtils.waitFor(2);
+        reviewingApplicationPage.getEConsentEditButton().click();
+        reviewingApplicationPage.getEconsentFirstName().clear();
+        reviewingApplicationPage.getEconsentFirstName().sendKeys("John");
+        reviewingApplicationPage.getSummaryLink().click();
+        reviewingApplicationPage.getEConsentEditButton().click();
+        Assert.assertEquals("John", reviewingApplicationPage.getEconsentFirstName().getAttribute("value"));
+
+
 
     }
 
 
 
     @When("the user edits any {string} of the application in any order")
-    public void the_user_edits_any_of_the_application_in_any_order(String string) {
+    public void the_user_edits_any_of_the_application_in_any_order(String title) {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        SeleniumUtils.waitFor(2);
+        reviewingApplicationPage.getSectionLinkByTitle(title).click();
+
 
     }
     @Then("the user should be able to return to the Summary page at any time")
     public void the_user_should_be_able_to_return_to_the_summary_page_at_any_time() {
-
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        SeleniumUtils.waitFor(2);
+        reviewingApplicationPage.getSummaryLink().click();
     }
 
 
@@ -123,6 +154,9 @@ public class ReviewingApplicationStepDefs {
     }
     @Then("the user should be able to click Submit button")
     public void the_user_should_be_able_to_click_submit_button() {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        Assert.assertEquals("Submit", reviewingApplicationPage.getSubmitButton().getText());
+
 
     }
 
@@ -130,10 +164,14 @@ public class ReviewingApplicationStepDefs {
 
     @When("the user clicks Submit button")
     public void the_user_clicks_submit_button() {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        reviewingApplicationPage.getSubmitButton().click();
 
     }
     @Then("the user should be redirected to the confirmation page")
     public void the_user_should_be_redirected_to_the_confirmation_page() {
+        ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
+        Assert.assertEquals("Application Submitted Successfully",reviewingApplicationPage.getApplicationSubmittedConfirmation().getText());
 
     }
 

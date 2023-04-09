@@ -2,6 +2,7 @@ package pages;
 
 import com.github.javafaker.Faker;
 import lombok.Data;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +12,8 @@ import utils.Driver;
 import utils.SeleniumUtils;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class ReviewingApplicationPage {
@@ -111,7 +114,7 @@ public class ReviewingApplicationPage {
 
     @FindBy(xpath = "//div[contains(@class, 'alert')]")
     private WebElement applicationSubmittedConfirmation;
-    @FindBy(xpath = "//h6[contains(., 'PreApproval Inquiry')]")
+    @FindBy(xpath = "//div[@class='PreApprovalDetails']//p")
     private WebElement preApprovalInquiryLabel;
 
     @FindBy(xpath = "//h6[contains(., 'Personal Details')]")
@@ -129,6 +132,9 @@ public class ReviewingApplicationPage {
 
     @FindBy(xpath = "//h6[contains(., 'eConsent')]")
     private WebElement eConsentLabel;
+
+    @FindBy (xpath =  "//h6[@class='pb-50']")
+    private List<WebElement> allSectionHeaders;
 
     //Summary - Edit buttons
 
@@ -150,8 +156,21 @@ public class ReviewingApplicationPage {
     @FindBy(id = "eConsentEdit")
     private WebElement eConsentEditButton;
 
+    @FindBy(id = "//a[contains(@class, 'success')]")
+    private List<WebElement> allEditButtons;
 
-    //Summary - labeled links
+    public List<String> getAllEditButtonsText() {
+        List<String> buttonTexts = new ArrayList<>();
+        buttonTexts.add(preApprovalInquiryEditButton.getText());
+        buttonTexts.add(personalInfoEditButton.getText());
+        buttonTexts.add(expenseEditButton.getText());
+        buttonTexts.add(employmentIncomeEditButton.getText());
+        buttonTexts.add(orderCreditcardEditButton.getText());
+        buttonTexts.add(eConsentEditButton.getText());
+
+        return buttonTexts;
+    }
+//Summary - labeled links
 
     @FindBy(xpath = "//a[@id='steps-uid-0-t-0']")
     private WebElement preApprovaldetailsLink;
@@ -178,6 +197,8 @@ public class ReviewingApplicationPage {
 
     @FindBy(xpath = "//a[@href='#finish']")
     private WebElement submitButton;
+
+
 
 
 
@@ -263,5 +284,18 @@ public class ReviewingApplicationPage {
         SeleniumUtils.jsClick(econsentAgreeButton);
 
         nextButtonPreApproval.click();
+    }
+
+    public List<String> getSectionHeaders(){
+        List<String> headers =new ArrayList<>();
+        for (WebElement sectionHeader : allSectionHeaders){
+           headers.add(sectionHeader.getText());
+        }
+        return headers;
+    }
+
+    public WebElement getSectionLinkByTitle(String title) {
+//        return Driver.getDriver().findElement(By.xpath("//span[contains(.,'"+title+"')]/parent::span/parent::a"));
+        return Driver.getDriver().findElement(By.xpath("//span[@class='d-block'][.='"+title+"']/parent::span/parent::a"));
     }
 }
