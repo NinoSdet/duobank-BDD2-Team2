@@ -210,7 +210,7 @@ public class ReviewingApplicationPage {
 
     }
     public void mortgageApplicationAccess() {
-        dashBoardButton.click();
+        //dashBoardButton.click();
         mortgageApplicationButton.click();
     }
     public void fillingOutPreApproval(){
