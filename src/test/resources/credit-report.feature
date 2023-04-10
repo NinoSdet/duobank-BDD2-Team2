@@ -9,6 +9,8 @@ Feature: Credit-Report feature
     And the user is redirected to the dashboard pageR
     And clicks mortgage application button
     And the user fills out all required fields in previous sections
+    When the user clicks the credit report button
+    Then the user is being redirected to the Credit Report Page
 
   @Slava
   Scenario: the user gets to the Credit Report Page
