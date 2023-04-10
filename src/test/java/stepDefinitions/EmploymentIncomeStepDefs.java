@@ -1,10 +1,13 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import pages.EmploymentIncomePage;
+import utils.SeleniumUtils;
 
 import java.util.List;
 
@@ -28,8 +31,19 @@ public class EmploymentIncomeStepDefs {
 
     }
 
+    @And("the user goes through the first three steps of application")
+    public void theUserGoesThroughTheFirstThreeStepsOfApplication() {
+        EmploymentIncomePage employmentIncomePage = new EmploymentIncomePage();
+        employmentIncomePage.stepsTillEmploymentAndIncome();
+    }
+    @Then("the user is redirected to Employment and Income Page")
+    public void theUserIsRedirectedToEmploymentAndIncomePage() {
+    }
+
+
     @When("the user is at Borrower Employment Information section")
     public void the_user_is_at_borrower_employment_information_section() {
+
     }
 
     @Then("the user can see  EMPLOYER NAME, POSITION, CITY, and a dropdown box for STATE, and a date picker for START DATE and END DATE")
@@ -42,23 +56,25 @@ public class EmploymentIncomeStepDefs {
 
     @Then("the user is able to enter Employer Name")
     public void the_user_is_able_to_enter_employer_name() {
-        EmploymentIncomePage employmentIncomePage = new EmploymentIncomePage();
-        employmentIncomePage.getCurrentJobEmployerName().sendKeys("Booking.com");
+
     }
 
-    @When("the user is at STATE dropdown menu in Employment and Income page")
-    public void the_user_is_at_state_dropdown_menu_in_employment_and_income_page() {
+    @When("the user is at States dropdown menu in Employment and Income page")
+    public void the_user_is_at_STATES_dropdown_menu_in_employment_and_income_page() {
+
+    }
+    @And("the user clicks on {string} dropdown")
+    public void theUserClicksOnDropdown(String states) {
+
+    }
+    @Then("the user is able to see the list of states")
+    public void the_user_is_able_to_see_the_list_of_states(List<String> expectedListOfStates) {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+        Assert.assertEquals(expectedListOfStates, new EmploymentIncomePage().getStatesAsList());
+
+
     }
 
-    @When("the user clicks on STATES dropdown")
-    public void the_user_clicks_on_states_dropdown() {
-        EmploymentIncomePage employmentIncomePage = new EmploymentIncomePage();
-        employmentIncomePage.getStates();
-    }
-
-    @Then("the user is able to see the list of {int} states")
-    public void the_user_is_able_to_see_the_list_of_states(Integer int1, List<WebElement> dataTable) {
-    }
 
     @When("the user is at EMPLOYER1 tab in Employment and Income page")
     public void the_user_is_at_employer_tab_in_employment_and_income_page() {
@@ -70,14 +86,18 @@ public class EmploymentIncomeStepDefs {
 
     @When("the user is at EMPLOYER1 section in Employment and Income page")
     public void the_user_is_at_employer1_section_in_employment_and_income_page() {
+        new EmploymentIncomePage().clickOnEmployer1tab();
     }
 
     @Then("the user is able to click on CLEAR option in EMPLOYER1 section")
     public void the_user_is_able_to_click_on_clear_option_in_employer1_section() {
+        new EmploymentIncomePage().clickOnClearButton1();
     }
 
     @Then("the user sees the displayed pop-up warning message")
     public void the_user_sees_the_displayed_pop_up_warning_message() {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+        Assert.assertEquals("This action will clear the form, would you like to continue?", employmentIncomePage.getWarningMessageBlock().getText());
     }
 
     @When("the user is at CLEAR option in EMPLOYER1 section of Employment and Income page")
@@ -86,14 +106,17 @@ public class EmploymentIncomeStepDefs {
 
     @Then("the user is able to clear the information only in that EMPLOYER1 section")
     public void the_user_is_able_to_clear_the_information_only_in_that_employer1_section() {
+        new EmploymentIncomePage().clickOnClearButton1();
+        new EmploymentIncomePage().clickCancelOnWarningMessage();
     }
 
-    @Given("the user is on the Employment Information section of Employment and Income page")
-    public void the_user_is_on_the_employment_information_section_of_employment_and_income_page() {
-    }
+//    @Given("the user is on the Employment Information section of Employment and Income page")
+//    public void the_user_is_on_the_employment_information_section_of_employment_and_income_page() {
+//    }
 
     @When("the user enters valid employer name as {string} position name as {string} city name as {string}")
-    public void the_user_enters_valid_employer_name_as_position_name_as_city_name_as(String string, String string2, String string3) {
+    public void the_user_enters_valid_employer_name_position_name_city_name(String employer1, String position1, String city1) {
+        new EmploymentIncomePage().employerInfo1(employer1, position1, city1);
     }
 
     @Then("information is added accordingly under corresponding input field")
@@ -102,14 +125,32 @@ public class EmploymentIncomeStepDefs {
 
     @When("the user is at Borrower Employment Information section of Employment and Income page")
     public void the_user_is_at_borrower_employment_information_section_of_employment_and_income_page() {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+        Assert.assertEquals("Borrower Gross Monthly Employment Income", employmentIncomePage.getBorrowerGrossMonthlyEmploymentIncomeSection().getText());
     }
 
     @Then("the user is able to click on ADD ANOTHER EMPLOYER")
     public void the_user_is_able_to_click_on_add_another_employer() {
+        new EmploymentIncomePage().addAnotherEmployerButton();
     }
 
     @Then("the user is able to see a new section for another employer info")
     public void the_user_is_able_to_see_a_new_section_for_another_employer_info() {
+    }
+    @Given("the user is on the Employment Information section of Employment and Income page")
+    public void the_user_is_on_the_employment2_information_section_of_employment_and_income_page() {
+    }
+
+    @When("the user enters valid employer2 name as {string} position name as {string} city name as {string}")
+    public void the_user_enters_valid_employer2_name_position2_name_city2_name(String employer2, String position2, String city2) {
+        new EmploymentIncomePage().employerInfo2(employer2, position2, city2);
+       new EmploymentIncomePage().selectStateFromDropdown();
+       new EmploymentIncomePage().job1Dates();
+       new EmploymentIncomePage().selectStateFromDropdown();
+    }
+
+    @Then("information2 is added accordingly under corresponding input field")
+    public void information2_is_added_accordingly_under_corresponding_input_field() {
     }
 
     @When("the user is at EMPLOYER2 section in Employment and Income page")
@@ -126,6 +167,8 @@ public class EmploymentIncomeStepDefs {
 
     @Then("the user is able to clear the information only in that EMPLOYER2 section")
     public void the_user_is_able_to_clear_the_information_only_in_that_employer2_section() {
+        new EmploymentIncomePage().clickOnClearButton1();
+        new EmploymentIncomePage().clickCancelOnWarningMessage();
     }
 
     @When("the user is at REMOVE option in EMPLOYER2 section of Employment and Income page")
@@ -134,14 +177,26 @@ public class EmploymentIncomeStepDefs {
 
     @Then("the user is able to remove the section")
     public void the_user_is_able_to_remove_the_section() {
+        new EmploymentIncomePage().clickOnRemoveButton2();
+        new EmploymentIncomePage().clickCancelOnWarningMessage();
     }
 
-    @When("the user is at Borrower Gross Monthly Employment Income sectionBorrower Employment Information section")
+    @When("the user is on Borrower Gross Monthly Employment Income section")
     public void the_user_is_at_borrower_gross_monthly_employment_income_section_borrower_employment_information_section() {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+        Assert.assertEquals(employmentIncomePage.getBorrowerGrossMonthlyEmploymentIncomeSection().getText(), "Borrower Gross Monthly Employment Income");
     }
 
-    @Then("the user can see  GROSS MONTHLY INCOME, MONTHLY OVERTIME, MONTHLY BONUSES, MONTHLY COMMISSIONS, MONTHLY DIVIDENDS\\/INTEREST and Borrower Total Monthly Income")
-    public void the_user_can_see_gross_monthly_income_monthly_overtime_monthly_bonuses_monthly_commissions_monthly_dividends_interest_and_borrower_total_monthly_income() {
+
+
+    @Then("the user can see GROSS MONTHLY INCOME, MONTHLY OVERTIME, MONTHLY BONUSES, MONTHLY COMMISSIONS, MONTHLY INTEREST and Borrower Total Monthly Income")
+    public void theUserCanSeeGROSSMONTHLYINCOMEMONTHLYOVERTIMEMONTHLYBONUSESMONTHLYCOMMISSIONSMONTHLYINTERESTAndBorrowerTotalMonthlyIncome() {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+        Assert.assertEquals("Gross Monthly Income", employmentIncomePage.getGrossMonthlyIncome().getText());
+        Assert.assertEquals("Monthly Overtime", employmentIncomePage.getMonthlyOvertime().getText());
+        Assert.assertEquals("Monthly Bonuses", employmentIncomePage.getMonthlyBonuses().getText());
+        Assert.assertEquals("Monthly Commissions", employmentIncomePage.getMonthlyCommission().getText());
+        Assert.assertEquals("Monthly Dividents/Interest", employmentIncomePage.getMonthlyDividents().getText());
     }
 
     @When("the user is at Borrower Gross Monthly Employment Income section")
@@ -150,6 +205,9 @@ public class EmploymentIncomeStepDefs {
 
     @Then("the user is able to enter only numeric input limited to twelve characters with a maximum of two decimal places in each input field")
     public void the_user_is_able_to_enter_only_numeric_input_limited_to_twelve_characters_with_a_maximum_of_two_decimal_places_in_each_input_field() {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+        employmentIncomePage.getGrossMonthlyIncome().sendKeys("123654789654123.25");
+        Assert.assertEquals("PLEASE ENTER A VALUE LESS THAN OR EQUAL TO 999999999999.99.", employmentIncomePage.getGrossMontlyIncomeErrorMessage().getText());
     }
 
     @When("the user is at GROSS MONTHLY INCOME input field")
@@ -177,7 +235,8 @@ public class EmploymentIncomeStepDefs {
     }
 
     @When("the user enters monthly gross income as {string} monthly overtime as {string} monthly bonuses as {string} monthly commissions as {string} monthly interests as {string}")
-    public void the_user_enters_monthly_gross_income_as_monthly_overtime_as_monthly_bonuses_as_monthly_commissions_as_monthly_interests_as(String string, String string2, String string3, String string4, String string5) {
+    public void the_user_enters_monthly_gross_income_as_monthly_overtime_as_monthly_bonuses_as_monthly_commissions_as_monthly_interests_as(String gross, String overtime, String bonuses, String commissions, String interests) {
+        new EmploymentIncomePage().mainIncome(gross, overtime, bonuses, commissions, interests);
     }
 
     @Then("information is added accordingly under corresponding input field of Borrower Gross Monthly Employment Income")
@@ -185,12 +244,13 @@ public class EmploymentIncomeStepDefs {
 
     }
 
-    @Given("the user is on the Additional Gross Monthly Income section of Employment and Income page")
+    @Given("the user is on the Additional Gross Monthly Income section under Employment and Income page")
     public void the_user_is_on_the_additional_gross_monthly_income_section_of_employment_and_income_page() {
     }
 
-    @When("the user enters additional income {int} as {string} additional income {int} as {string} and additional income {int} as {string}")
-    public void the_user_enters_additional_income(Integer int1, String string, Integer int2, String string2, Integer int3, String string3) {
+    @When("the user enters additional income1 as {string} additional income2 as {string} and additional income3 as {string}")
+    public void the_user_enters_additional_income(String income1, String income2, String income3) {
+        new EmploymentIncomePage().additionalIncome(income1, income2, income3);
     }
 
     @Then("information is entered accordingly by each corresponding selection under INCOME SOURCE dropdown menu")
@@ -206,7 +266,9 @@ public class EmploymentIncomeStepDefs {
     }
 
     @Then("the following options should pop up to choose from")
-    public void the_following_options_should_pop_up_to_choose_from(List<WebElement> dataTable) {
+    public void the_following_options_should_pop_up_to_choose_from(List<String> incomeSource) {
+        EmploymentIncomePage employmentIncomePage= new EmploymentIncomePage();
+
     }
 
     @When("the user is at Employment and Income Page")
