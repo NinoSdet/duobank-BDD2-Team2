@@ -192,7 +192,7 @@ public class EConsentPage {
         Faker faker = new Faker();
         String employerName = faker.company().name();
         employerNameSection.sendKeys(employerName);
-        grossMonthlyIncome.sendKeys("125634967");
+        grossMonthlyIncome.sendKeys("155555567");
         nextButtonForPreApproval.click();
 
     }
@@ -200,20 +200,53 @@ public class EConsentPage {
         nextButtonForPreApproval.click();
 
     }
-    public void fillingOutEconsent(){
+    public void fillingOutEconsent() {
         Faker faker = new Faker();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
-        String email =faker.internet().emailAddress();
+        String email = faker.internet().emailAddress();
 
         eConsentFirstName.sendKeys(firstName);
         eConsentLastName.sendKeys(lastName);
         eConsentEmail.sendKeys(email);
-        SeleniumUtils.jsClick(eConsentAgreeButton);
 
-        nextButtonForPreApproval.click();
+    }
+    public void clickAgreeButton() {
+        SeleniumUtils.jsClick(eConsentAgreeButton);
     }
 
+    public void clickDontAgreeButton(){
+        SeleniumUtils.jsClick(eConsentDontAgreeButton);
+    }
+    public void clickNextButton(){
+        SeleniumUtils.jsClick(eConsentNextButton);
+    }
+
+    public void clickPreviousButton(){
+        SeleniumUtils.jsClick(eConsentPreviousButton);
+
+    }
+    public boolean isInvalidEmailDisplayed(){
+        return invalidEmailPopUpMessage.isDisplayed();
+    }
+
+    public boolean isEconsentYourConsent (){
+        return eConsentYourConsent.isDisplayed();
+    }
+
+    public boolean isEconsentWithdrawal(){
+        return eConsentWithdrawalOfConsent.isDisplayed();
+    }
+    public boolean isEconsentObtainingPaperCopies() {
+       return eConsentObtainingPaperCopies.isDisplayed();
+
+    }
+    public boolean isEconsentHowWeCanReachYou(){
+        return eConsentHowWeCanReachYou.isDisplayed();
+    }
+    public void eConsentWrongEmail(){
+        eConsentEmail.sendKeys("ddddddd");
+    }
     public void clickEconsentYourConsent(){
         SeleniumUtils.jsClick(eConsentYourConsent);
     }
