@@ -12,7 +12,7 @@ Feature: Credit-Report feature
     When the user clicks the credit report button
     Then the user is being redirected to the Credit Report Page
 
-  @Slava
+  @Slava1
   Scenario: the user gets to the Credit Report Page
     Given the user filled out all the fields
     When the user clicks the credit report button
@@ -23,27 +23,27 @@ Feature: Credit-Report feature
     When the user chooses YES on the Credit Report Page
     Then the user is being redirected to the verification page
 
-  @Slava
+  @Slava1
   Scenario: the user is able to go to the previous page after NO is chosen
     When the user chooses NO and clicks on PREVIOUS button on the Credit Report Page
     Then the user is being redirected to the Employment and Income page
 
-  @Slava
+  @Slava1
   Scenario: the user is able to go to the previous page when NOTHING is chosen
     When the user skips selection and clicks on PREVIOUS button on the Credit Report Page
     Then the user is being redirected to the Employment and Income page
 
-  @Slava
+  @Slava1
   Scenario: the user is able to go to the next page when YES is chosen
     When the user clicks on NEXT button on the Credit Report Page
     Then the user is being redirected to the eConsent page
 
-  @Slava
+  @Slava1
   Scenario: the user is able to go to the next page when NO is chosen
     When the user clicks on NEXT button on the Credit Report Page
     Then the user is being redirected to the eConsent page
 
-  @Slava
+  @Slava1
   Scenario: the user is not able to go to the next page when NOTHING is chosen
     When the user clicks on NEXT button on the Credit Report Page
     Then the user stays on the Credit Report Page page

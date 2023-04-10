@@ -82,6 +82,9 @@ public class ReviewingApplicationPage {
     @FindBy(id = "b_cell")
     private WebElement borrowerCell;
 
+    @FindBy(id = "b_home")
+    private WebElement borrowerHome;
+
     //Expenses
     @FindBy(id = "monthlyrentalpayment")
     private WebElement monthlyRentalExpenses;
@@ -232,12 +235,14 @@ public class ReviewingApplicationPage {
         String dob = sdf.format(faker.date().birthday());
         String ssn = randomDigits(3)+"-"+randomDigits(2)+"-"+ randomDigits(4);
         String cellNumber = faker.phoneNumber().phoneNumber();
+        String homeNumber = faker.phoneNumber().phoneNumber();
         borrowerFirstName.sendKeys(borrowersFirstName);
         borrowerLastName.sendKeys(borrowersLastName);
         borrowerEmail.sendKeys(borrowersEmail);
         borrowerDob.sendKeys(dob);
         borrowerSsn.sendKeys(ssn);
         borrowerCell.sendKeys(cellNumber);
+        borrowerHome.sendKeys(homeNumber);
 
         Select maritalDropdown = new Select(borrowerMaritalStatusDropdown);
         maritalDropdown.selectByVisibleText("Single");

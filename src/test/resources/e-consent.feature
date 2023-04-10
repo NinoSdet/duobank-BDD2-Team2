@@ -5,6 +5,7 @@ Feature: e-Consent feature
 
 
 
+
   Background: Common steps for all scenarios in E-Consent page
     Given User is on the sign-in page.
     When  User enters valid username password and clicks on the sign-in input boxes
@@ -60,5 +61,4 @@ Feature: e-Consent feature
   Scenario: When the user tries to submit without selecting one of the radio buttons "Agree" and "Don't Agree"
     When The user on E-Consent Page
     Then The user should see an error message and should not submit the application.
-
 

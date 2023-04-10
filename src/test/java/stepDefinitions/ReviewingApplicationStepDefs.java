@@ -144,6 +144,7 @@ public class ReviewingApplicationStepDefs {
     public void the_user_should_be_able_to_return_to_the_summary_page_at_any_time() {
         ReviewingApplicationPage reviewingApplicationPage = new ReviewingApplicationPage();
         SeleniumUtils.waitFor(2);
+        Assert.assertTrue(reviewingApplicationPage.getSummaryLink().isEnabled());
         reviewingApplicationPage.getSummaryLink().click();
     }
 

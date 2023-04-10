@@ -107,13 +107,13 @@ Feature: Employment-Income feature
       | Booking.Com   | QA engineer     | San Francisco     |
       | JetBlue       | QA engineer     | Orlando           |
 
-  @Anar
+  @Anar1
   Scenario: User is able to add a new section for another employer info when clicking on ADD ANOTHER EMPLOYER
     When the user is at Borrower Employment Information section of Employment and Income page
     Then the user is able to click on ADD ANOTHER EMPLOYER
     And the user is able to see a new section for another employer info
 
-  @Anar
+  @Anar1
   Scenario: User is able to see CLEAR option that displays a warning pop-up about clearing the information
     When the user is at EMPLOYER2 section in Employment and Income page
     Then the user is able to click on CLEAR option in EMPLOYER2 section
@@ -137,13 +137,13 @@ Feature: Employment-Income feature
       | Tesla         | QA engineer     | San Jose          |
       | SpaceX        | QA engineer     | Baltimore         |
 
-  @Anar
+  @Anar1
   Scenario: User is able to see CLEAR option that displays a warning pop-up about clearing the information
     When the user is at EMPLOYER2 section in Employment and Income page
     Then the user is able to click on CLEAR option in EMPLOYER2 section
     And the user sees the displayed pop-up warning message
 
-  @Anar
+  @Anar1
   Scenario: User is able to remove a section using the REMOVE option
     When the user is at REMOVE option in EMPLOYER2 section of Employment and Income page
     Then the user is able to remove the section
@@ -155,7 +155,7 @@ Feature: Employment-Income feature
     When the user is on Borrower Gross Monthly Employment Income section
     Then the user can see GROSS MONTHLY INCOME, MONTHLY OVERTIME, MONTHLY BONUSES, MONTHLY COMMISSIONS, MONTHLY INTEREST and Borrower Total Monthly Income
 
-  @Anar
+  @Anar1
   Scenario: User is able to enter only numeric input limited to twelve characters with a maximum of two decimal places
     When the user is at Borrower Gross Monthly Employment Income section
     Then the user is able to enter only numeric input limited to twelve characters with a maximum of two decimal places in each input field

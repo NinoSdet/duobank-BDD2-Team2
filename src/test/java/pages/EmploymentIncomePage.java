@@ -15,6 +15,7 @@ import utils.SeleniumUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Data
@@ -266,6 +267,9 @@ public class EmploymentIncomePage {
         @FindBy(xpath = "//select[@id='state1']//option")
         private List<WebElement> listOfStates;
 
+        @FindBy(xpath = "//select[@id='state1']")
+        private WebElement listOfStatesSelect;
+
         @FindBy(id="swal2-content")
         private WebElement WarningMessageBlock;
 
@@ -408,11 +412,14 @@ public class EmploymentIncomePage {
     public List<String> getStatesAsList() {
 
         List<String> states = new ArrayList<>();
-        List<String> allStateNames = SeleniumUtils.getElementsText(listOfStates);
-
-        for (int i = 0; i < allStateNames.size(); i++) {
-            states.add(allStateNames.get(i));
+        Select allStatesSelect = new Select(listOfStatesSelect);
+        SeleniumUtils.waitFor(2);
+        for(WebElement option: allStatesSelect.getOptions()){
+            states.add(option.getText());
         }
+
+        states.remove("--Select--");
+        Collections.sort(states);
         return states;
     }
 
