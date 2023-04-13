@@ -13,7 +13,7 @@ Feature: Reviewing-Application feature
     And the user fills out all required fields in previous sections
     Then the user is redirected to the Summary page
 
-  @smoke
+  @smoke1
   Scenario: The Summary page should be accessible from the main application flow
   When the user is on summary page
   Then the user can see the text "PreApproval Inquiry"

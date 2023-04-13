@@ -7,7 +7,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.URL;
 
 public class Driver {
 
@@ -30,7 +33,7 @@ public class Driver {
 
         if(drivers.get() == null) { // check if the driver is initialized
 
-           // if not, initialize using the value from properties file
+            // if not, initialize using the value from properties file
             switch (browser) {
                 case "chrome":
                     ChromeOptions options = new ChromeOptions();
@@ -44,9 +47,7 @@ public class Driver {
                     drivers.set(new ChromeDriver(chromeOptions));
                     break;
                 case "edge":
-                    EdgeOptions edgeOptions1 = new EdgeOptions();
-                    edgeOptions1.addArguments("--remote-allow-origins=*");
-                    drivers.set(new EdgeDriver(edgeOptions1));
+                    drivers.set(new EdgeDriver());
                     break;
                 case "headlessEdge":
                     EdgeOptions edgeOptions = new EdgeOptions();
@@ -64,7 +65,7 @@ public class Driver {
                 case "safari":
                     drivers.set(new SafariDriver());
                     break;
-                    
+
                 default:
                     throw new RuntimeException("Unsupported browser");
 
@@ -79,10 +80,10 @@ public class Driver {
 
     public synchronized static void quitDriver(){
 
-         if(drivers.get() != null){  // if the driver is active
-             drivers.get().quit();  // quit the driver
-             drivers.remove();  // set the driver variable value to null because next initialization of driver checks if it is null
-         }
+        if(drivers.get() != null){  // if the driver is active
+            drivers.get().quit();  // quit the driver
+            drivers.remove();  // set the driver variable value to null because next initialization of driver checks if it is null
+        }
 
     }
 
