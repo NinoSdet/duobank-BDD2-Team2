@@ -291,8 +291,13 @@ public class EmploymentIncomePage {
         @FindBy(xpath="//label[@for='monthlydividents']")
         private WebElement monthlyDividentsLabel;
 
+        @FindBy(xpath="//span[@class='d-block']")
+        private WebElement creditReportPage;
 
+    public void clickOnNextButton() {
+        nextButton.click();
 
+    }
 
 // work thru steps to get to my page
 
@@ -421,10 +426,17 @@ public class EmploymentIncomePage {
         states.remove("--Select--");
         Collections.sort(states);
         return states;
+
     }
 
 
+    public void fillEmploymentAndIncomeWithData(String employer_name, String position,
+                                                String city, String state,
+                                                String start_date, String gross_monthly_income,
+                                                String monthly_over_time, String monthly_bonuses,
+                                                String monthly_commissions, String monthly_dividents) {
     }
+}
 
     //click on employer1 button
 // click on This is my current job checkbox to check
