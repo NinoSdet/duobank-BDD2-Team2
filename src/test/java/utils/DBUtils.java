@@ -11,6 +11,7 @@ public class DBUtils {
     private static Statement statement;
     private static ResultSet resultSet;
     public static void createConnection() {
+
         String url = ConfigReader.getProperty("db_url");
         String user = ConfigReader.getProperty("db_username");
         String password = ConfigReader.getProperty("db_password");
@@ -121,7 +122,13 @@ public class DBUtils {
     public static List<String> getSingleColumnValues(String columnName, String tableName ){
         List<String> list =  new ArrayList<>();
         for (Map<String, Object> row : getListOfMaps("SELECT "+columnName+" from "+tableName+"")) {
-            list.add((String)(row.get(columnName)));
+            Object value = row.get(columnName);
+            if (value instanceof Integer){
+                list.add(((Integer)value).toString());
+            }
+            else {
+                list.add((String) value);
+            }
         }
 
         return list;
