@@ -18,12 +18,12 @@ Feature: Reviewing-Application feature
   When the user is on summary page
   Then the user can see the text "PreApproval Inquiry"
 
-  @smoke
+  @smoke1
   Scenario: The Summary page should display all the information the user has previously entered
     When the user is on summary page
     Then the user can see the all information he entered in all sections
 
-  @smoke
+  @smoke1
   Scenario: Each section of the application should be clearly labeled and separated from the other sections
     When the user is on summary page
     Then the user can see that each is labeled and separated from the other sections
@@ -34,23 +34,23 @@ Feature: Reviewing-Application feature
       |Order Credit         |
       |eConsent	            |
 
-  @smoke
+  @smoke1
   Scenario: Each section of the application should have an Edit button
     When the user is on summary page
     Then the user can see and click the edit button for each section so the user can make changes to that section
 
 
-  @smoke
+  @smoke1
   Scenario: Clicking the Edit button for a section should take the user back to the relevant page in the main application flow so that they can make any necessary changes
     When the user clicks the Edit button
     Then the user redirected to the relevant page to make any necessary changes
 
-  @smoke
+  @smoke1
   Scenario: Once the user has made changes to a section, the user should be able to return to the Summary page and see the updated information for that section
     When the user makes changes to a section
     Then the user should be able to return to the Summary page and see the updated information for that section
 
-  @smoke
+  @smoke1
     Scenario Outline: The user should be able to edit any section of the application in any order so the user should be able to return to the Summary page at any time
     When the user edits any "<section>" of the application in any order
     Then the user should be able to return to the Summary page at any time
@@ -63,12 +63,12 @@ Feature: Reviewing-Application feature
       |Credit Report         |
       |eConsent	            |
 
-  @smoke
+  @smoke1
   Scenario: The Summary page should include a Submit button that the user can click once they have reviewed and edited all sections of the application.
     When the user reviews all information entered
     Then the user should be able to click Submit button
 
-  @smoke
+  @smoke1
   Scenario: Clicking the Submit button should submit the application and take the user to a confirmation page that confirms that their application has been received and will be reviewed by the bank.
     When the user clicks Submit button
     Then the user should be redirected to the confirmation page
