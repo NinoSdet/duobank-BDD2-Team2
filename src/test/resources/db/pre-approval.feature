@@ -79,7 +79,7 @@ Feature: PreApproval feature
   @nino
   Scenario Outline: Verify that purpose_loan field is not empty and contains valid loan purpose given in the dropdown options
     When  The user selects one of the "<purpose_loan>" options
-    Then  The result should be empty "<purpose_loan>":
+    Then  The result should not be empty "<purpose_loan>":
     Examples:
       |purpose_loan   |
       |Purchase a Home|

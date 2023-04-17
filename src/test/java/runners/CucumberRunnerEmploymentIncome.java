@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 
         tags = "@AnarDb",
 //        tags = "@eConsentPage",
+//        tags = "@smoke",
 
 //
 

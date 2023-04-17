@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 
 
         tags = "@nino",
+//        tags = "@smoke",
 
 
 //

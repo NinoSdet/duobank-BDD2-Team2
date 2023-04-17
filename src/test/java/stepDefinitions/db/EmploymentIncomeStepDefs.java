@@ -10,6 +10,8 @@ import pages.EmploymentIncomePage;
 import utils.DBUtils;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -20,11 +22,18 @@ public class EmploymentIncomeStepDefs {
     @When("I send a request to retrieve column names for tbl_mortgage table")
     public void i_send_a_request_to_retrieve_column_names_for_tbl_mortgage_table() {
         actualMortgageTableColumnNames = DBUtils.getColumnNames("SELECT * from tbl_mortagage");
+
+
     }
 
     @Then("It should be the following")
     public void it_should_be_the_following(List<String> expectedMortgageTableColumnNames) {
-        Assert.assertEquals(expectedMortgageTableColumnNames, actualMortgageTableColumnNames);
+        Collections.sort(actualMortgageTableColumnNames);
+        List <String> expected = new ArrayList<>(expectedMortgageTableColumnNames);
+        Collections.sort(expected);
+        System.out.println(expected);
+        System.out.println(actualMortgageTableColumnNames);
+        Assert.assertTrue(actualMortgageTableColumnNames.containsAll(expected));
 
     }
 

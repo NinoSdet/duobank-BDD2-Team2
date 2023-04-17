@@ -1,4 +1,4 @@
-@dbDania
+@DB
 Feature: Storing Personal Information in Duobank Mortgage Application
 
 

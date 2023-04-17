@@ -362,8 +362,8 @@ public class PreApprovalStepDefs {
         new ReviewingApplicationPage().getSubmitButton().click();
         SeleniumUtils.waitFor(3);
     }
-    @Then("The result should be empty {string}:")
-    public void the_result_should_be_empty(String purpose_loan) throws SQLException {
+    @Then("The result should not be empty {string}:")
+    public void the_result_should_not_be_empty(String purpose_loan) throws SQLException {
         String actualId =null;
         try {
             actualId=getLastId();

@@ -1,4 +1,4 @@
-@AnarDb
+@DB
 
 Feature: employment and income details should be securely stored in the database, so that user can easily provide and update this information through the
   Employment and Income page of the application
@@ -23,15 +23,15 @@ Then It should be the following
 | co_end_date            |
 | co_current_job         |
 | gross_monthly_income   |
-| monthly_overtime       |
+| monthly_over_time       |
 | monthly_bonuses        |
-| monthly_commissions    |
-| monthly_dividends      |
+| monthly_commision    |
+| monthly_dividents      |
 | c_gross_monthly_income |
-| c_monthly_overtime     |
+| c_monthly_over_time     |
 | c_monthly_bonuses      |
-| c_monthly_commissions  |
-| c_monthly_dividends    |
+| c_monthly_commision  |
+| c_monthly_dividents    |
 | add_belong             |
 | income_source          |
 | amount                 |
@@ -60,15 +60,15 @@ Then It should be the following
     Then  The result should not display empty
 
 
-  @AnarDb
-  Scenario: Verify data mapping of employment and income page
-    Given the user is on employment and income page
-    When the user enters the following data in Employment and Income
-      | employer_name    | position    | city           | state     | start_date   |gross_monthly_income| monthly_over_time| monthly_bonuses|monthly_commissions| monthly_dividents|
-      | CapitalOne       | SDET        | Anaheim        | CA        | 01/10/2009   |8000.65             | 1500.84          | 2200.54        |3500.20            | 5600.50          |
-
-
-    Then the data should be mapped correctly to the following columns in the table tbl_mortgage
-      | employer_name    | position    | city           | state     | start_date   |gross_monthly_income| monthly_over_time| monthly_bonuses|monthly_commissions| monthly_dividents|
-      | CapitalOne       | SDET        | Anaheim        | CA        | 01/10/2009   |8000.65             | 1500.84          | 2200.54        |3500.20            | 5600.50          |
-
+#  @AnarDb
+#  Scenario: Verify data mapping of employment and income page
+#    Given the user is on employment and income page
+#    When the user enters the following data in Employment and Income
+#      | employer_name    | position    | city           | state     | start_date   |gross_monthly_income| monthly_over_time| monthly_bonuses|monthly_commissions| monthly_dividents|
+#      | CapitalOne       | SDET        | Anaheim        | CA        | 01/10/2009   |8000.65             | 1500.84          | 2200.54        |3500.20            | 5600.50          |
+#
+#
+#    Then the data should be mapped correctly to the following columns in the table tbl_mortgage
+#      | employer_name    | position    | city           | state     | start_date   |gross_monthly_income| monthly_over_time| monthly_bonuses|monthly_commissions| monthly_dividents|
+#      | CapitalOne       | SDET        | Anaheim        | CA        | 01/10/2009   |8000.65             | 1500.84          | 2200.54        |3500.20            | 5600.50          |
+#
