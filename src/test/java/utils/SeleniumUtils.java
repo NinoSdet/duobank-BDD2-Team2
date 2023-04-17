@@ -167,4 +167,7 @@ public class SeleniumUtils {
         int y = element.getLocation().getY();
         ((JavascriptExecutor)Driver.getDriver()).executeScript("window.scrollBy(0,"+ y +")");
     }
+
+    public static void scrollDown(int i) {
+    }
 }
