@@ -1,5 +1,6 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import lombok.Data;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import utils.ConfigReader;
 import utils.Driver;
 import utils.SeleniumUtils;
+
+import java.text.SimpleDateFormat;
 
 @Data
 public class PreApprovalPage {
@@ -254,6 +257,7 @@ public class PreApprovalPage {
 
 
     }
+
 
     public void clickNext() {
         nextButton.click();

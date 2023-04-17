@@ -15,7 +15,9 @@ import org.junit.runner.RunWith;
         // omitting tags entirely will run everything under the given path in features, you could use it to run regression
 
 
-        tags = "@nino",
+
+        tags = "@nino or @AnarDb or @DaniaDb",
+
 //        tags = "@smoke",
 
 

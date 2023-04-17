@@ -73,6 +73,13 @@ public class ReviewingApplicationPage {
     @FindBy(id = "b_ssn")
     private WebElement borrowerSsn;
 
+    @FindBy(id = "b_middleName")
+    private WebElement borrowerMiddleName;
+
+    @FindBy(id = "b_suffix")
+    private WebElement borrowerSuffix;
+
+
 //    @FindBy(id = "select2-b_marital-container")
 //    private WebElement borrowerMaritalStatus;
 
@@ -303,4 +310,39 @@ public class ReviewingApplicationPage {
 //        return Driver.getDriver().findElement(By.xpath("//span[contains(.,'"+title+"')]/parent::span/parent::a"));
         return Driver.getDriver().findElement(By.xpath("//span[@class='d-block'][.='"+title+"']/parent::span/parent::a"));
     }
+
+    // personal Info page_ Dania
+    public void fillThePersonalInfoFormWithData(String borrowerFirstName1,
+                                                String borrowerMiddleName1,
+                                                String borrowerLastName1,
+                                                String borrowerSuffix1,
+                                                String borrowerEmail1,
+                                                String borrowerDob1,
+                                                String borrowerSsn1,
+                                                String borrowerMaritalStatus1,
+                                                String borrowerCellPhone1,
+                                                String borrowerHomePhone1){
+
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        String ssn = randomDigits(3)+"-"+randomDigits(2)+"-"+ randomDigits(4);
+        borrowerFirstName.sendKeys(borrowerFirstName1);
+        borrowerLastName.sendKeys(borrowerLastName1);
+        borrowerEmail.sendKeys(borrowerEmail1);
+        borrowerDob.sendKeys(borrowerDob1);
+        borrowerSsn.sendKeys(borrowerSsn1);
+        borrowerCell.sendKeys(borrowerCellPhone1);
+        borrowerHome.sendKeys(borrowerHomePhone1);
+        borrowerMiddleName.sendKeys(borrowerMiddleName1);
+
+
+        Select maritalDropdown = new Select(borrowerMaritalStatusDropdown);
+        maritalDropdown.selectByVisibleText(borrowerMaritalStatus1);
+
+        Select suffixDropdown = new Select(borrowerSuffix);
+        suffixDropdown.selectByVisibleText(borrowerSuffix1);
+
+    }
+
 }
