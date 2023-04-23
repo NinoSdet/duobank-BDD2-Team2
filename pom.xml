@@ -104,7 +104,7 @@
                     <version>3.0.0</version>
                     <configuration>
                         <includes>
-                            <include>CucumberRunner.java</include>
+                            <include>CucumberRunnerPreApproval.java</include>
                         </includes>
                         <!-- the following 2 lines should be added only when you want run feature files in parallel
                            for a normal run, they should be removed or commented out-->

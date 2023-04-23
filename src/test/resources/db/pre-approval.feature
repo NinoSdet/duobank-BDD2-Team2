@@ -23,8 +23,6 @@ Feature: PreApproval feature
       |1               |John Smith    |1                  |Purchase a Home |560236            |32626       |5                   |527610       |Other type of Down Payment                      |20000             |
 
 
-
-
   @nino
   Scenario Outline: The realtor_status and loan_officer column values should be stored as integer values
     Given the user is on the PreApproval details page

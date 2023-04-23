@@ -167,7 +167,8 @@ public class PreApprovalPage {
     }
 
     public void mortgageApplicationAccess() {
-        dashBoardButton.click();
+//        dashBoardButton.click();
+//        SeleniumUtils.waitForClickablility(mortgageApplicationButton, 2);
         mortgageApplicationButton.click();
     }
 
