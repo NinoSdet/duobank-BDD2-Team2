@@ -48,7 +48,7 @@ public class SignUpNinoStepDefs {
 
             softAssertions.assertAll();
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_user where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_user where id=" + actualId);
         }
 
     }
@@ -92,7 +92,7 @@ public class SignUpNinoStepDefs {
             List<Map<String, Object>> actual = DBUtils.getListOfMaps("SELECT * FROM tbl_user where id=" + actualId);
             Assert.assertEquals(DigestUtils.md5Hex(userPassword), actual.get(0).get("password"));
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_user where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_user where id=" + actualId);
         }
 
 

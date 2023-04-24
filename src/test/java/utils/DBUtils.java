@@ -56,6 +56,17 @@ public class DBUtils {
         }
         return result;
     }
+
+    public static int executeDelete(String query) throws SQLException {
+        try {
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int result = statement.executeUpdate(query);
+
+        return result;
+    }
     public static List<List<Object>> getListOfLists(String query) {
         executeQuery(query);
         List<List<Object>> rowList = new ArrayList<>();
