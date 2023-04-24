@@ -92,7 +92,7 @@ public class PreApprovalStepDefs {
 
            softAssertions.assertAll();
        }finally{
-           DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+           DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
        }
 
     }
@@ -136,7 +136,7 @@ public class PreApprovalStepDefs {
 
             softAssertions.assertAll();
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
         }
 
     }
@@ -182,7 +182,7 @@ public class PreApprovalStepDefs {
 
             softAssertions.assertAll();
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
         }
 
     }
@@ -233,7 +233,7 @@ public class PreApprovalStepDefs {
 
         softAssertions.assertAll();
     }finally{
-        DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+        DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
     }
 
 }
@@ -291,7 +291,7 @@ public class PreApprovalStepDefs {
 
             softAssertions.assertAll();
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
         }
 
     }
@@ -334,7 +334,7 @@ public class PreApprovalStepDefs {
 
             softAssertions.assertAll();
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
         }
 
     }
@@ -375,7 +375,7 @@ public class PreApprovalStepDefs {
 
             softAssertions.assertAll();
         }finally{
-            DBUtils.executeUpdate("DELETE FROM tbl_mortagage where id=" + actualId);
+            DBUtils.executeDelete("DELETE FROM tbl_mortagage where id=" + actualId);
         }
 
     }
