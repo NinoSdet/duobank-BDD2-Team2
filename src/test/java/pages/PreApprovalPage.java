@@ -14,9 +14,10 @@ import java.text.SimpleDateFormat;
 
 @Data
 public class PreApprovalPage {
-    public PreApprovalPage(){
+    public PreApprovalPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
     @FindBy(id = "email")
     private WebElement username;
 
@@ -47,7 +48,7 @@ public class PreApprovalPage {
     @FindBy(xpath = "//input[@id='realtor2']")
     private WebElement noRealtorCheckBox;
     //
-    @FindBy(xpath= "//input[@id='realtorinfo']")
+    @FindBy(xpath = "//input[@id='realtorinfo']")
     private WebElement realtorInfoInputField;
 
     @FindBy(xpath = "//label[@for='loanofficer1']")
@@ -61,7 +62,6 @@ public class PreApprovalPage {
     //
     @FindBy(xpath = "//input[@id='loanofficer2']")
     private WebElement noLoanOfficerCheckBox;
-
 
 
     @FindBy(xpath = "//select[@name='purpose_loan']")
@@ -91,9 +91,6 @@ public class PreApprovalPage {
 
     @FindBy(xpath = "//label[contains(@id, 'additionalfunds')]")
     private WebElement additionalFundsErrorMessage;
-
-
-
 
 
     public WebElement getEstimatedPurchasePrice() {
@@ -156,9 +153,6 @@ public class PreApprovalPage {
     private WebElement sourceOfDownpaymentDropdown;
 
 
-
-
-
     public void signIn() {
         this.username.sendKeys(ConfigReader.getProperty("username"));
         this.password.sendKeys(ConfigReader.getProperty("password"));
@@ -173,11 +167,11 @@ public class PreApprovalPage {
         mortgageApplicationButton.click();
     }
 
-    public void clickYesRealtor(){
+    public void clickYesRealtor() {
         yesRealtorCheckBoxLabel.click();
     }
 
-    public void clickNoRealtor(){
+    public void clickNoRealtor() {
         noRealtorCheckBoxLabel.click();
     }
 
@@ -189,7 +183,7 @@ public class PreApprovalPage {
         return noRealtorCheckBox;
     }
 
-    public void enterRealtorInfo(String realtorInfo){
+    public void enterRealtorInfo(String realtorInfo) {
         realtorInfoInputField.sendKeys(realtorInfo);
     }
 
@@ -197,11 +191,11 @@ public class PreApprovalPage {
         return realtorInfoInputField;
     }
 
-    public void clickYesLoanOfficer(){
+    public void clickYesLoanOfficer() {
         yesLoanOfficerCheckBoxLabel.click();
     }
 
-    public void clickNoLoandOfficer(){
+    public void clickNoLoandOfficer() {
         noLoanOfficerCheckBoxLabel.click();
     }
 
@@ -231,17 +225,17 @@ public class PreApprovalPage {
                                     String downpaymentPercent,
                                     String totalLoanAmount,
                                     String srcDownpayment,
-                                    String addFundAvailable){
+                                    String addFundAvailable) {
 
-        if (realtorStatus.equalsIgnoreCase("Yes") || realtorStatus.equals("1")){
+        if (realtorStatus.equalsIgnoreCase("Yes") || realtorStatus.equals("1")) {
             clickYesRealtor();
             this.realtorInfoInputField.sendKeys(realtorInfo);
-        }else{
+        } else {
             clickNoRealtor();
         }
-        if (loanOfficerStatus.equalsIgnoreCase("Yes") || loanOfficerStatus.equals("1")){
+        if (loanOfficerStatus.equalsIgnoreCase("Yes") || loanOfficerStatus.equals("1")) {
             clickYesLoanOfficer();
-        }else{
+        } else {
             clickNoLoandOfficer();
         }
         Select loanPurposeSelect = new Select(loanPurposeDropDown);
@@ -264,4 +258,49 @@ public class PreApprovalPage {
     public void clickNext() {
         nextButton.click();
     }
+
+
+//sign-up
+
+    @FindBy(xpath = "//a[@href='register.php']")
+    private WebElement signUpLink;
+
+    @FindBy(id = "first-name")
+    private WebElement firstNameSignUp;
+
+    @FindBy(id = "last-name")
+    private WebElement lastNameSignUp;
+
+    @FindBy(id = "email")
+    private WebElement emailSignUp;
+
+    @FindBy(id = "exampleInputPassword1")
+    private WebElement passwordSignUp;
+
+    @FindBy(id = "sign-up-button")
+    private WebElement signUpButton;
+
+
+    public void clickOnSignUpLink() {
+        signUpLink.click();
+    }
+
+    public void fillTheSignUpFormWithData(String firstName,
+                                    String lastName,
+                                    String email,
+                                    String password) {
+        clickOnSignUpLink();
+        SeleniumUtils.waitFor(2);
+        firstNameSignUp.sendKeys(firstName);
+        lastNameSignUp.sendKeys(lastName);
+        emailSignUp.sendKeys(email);
+        passwordSignUp.sendKeys(password);
+        signUpButton.click();
+
+
+
+    }
+
+
 }
+

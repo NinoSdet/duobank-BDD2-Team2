@@ -16,9 +16,9 @@ import org.junit.runner.RunWith;
 
 
 
-//                tags = "@nino or @AnarDb or @DaniaDb",
-        tags = "@nino1",
-//        tags = "@smoke",
+//                tags = "@nino or @nino1 or @AnarDb or @DaniaDb",
+//        tags = "@nino1",
+        tags = "@smoke",
 //        tags = "@nino2",
 
 

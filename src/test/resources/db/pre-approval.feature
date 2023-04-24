@@ -50,7 +50,7 @@ Feature: PreApproval feature
       |560236            |32626       |5                   |527610           |20000             |
     Then All entered values should be stored as a integer values
 
-  @nino @smoke
+  @nino
   Scenario Outline: Verify mapping of the PreApproval details page form fields upon successful submission of the page
     Given the user is on the PreApproval details page
     When the user enters the following data in "<realtor_status>" , "<realtor_info>", "<loan_officer_status>", "<purpose_loan>", "<est_purchase_price>", "<down_payment>", "<down_payment_percent>", "<total_loan_amount>", "<src_down_payment>", "<add_fund_available>" in the PreApproval details page form fields:
