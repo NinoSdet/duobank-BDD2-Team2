@@ -11,7 +11,7 @@ Feature: PreApproval feature
     And clicks mortgage application buttonN
     Then the user is redirected to the PreApproval details page
 
-  @nino @smoke
+  @nino
   Scenario: The Preapproval details page should be stored in tbl_mortagage table in the specific columns
     Given the user is on the PreApproval details page
     When the user enters valid info in PreApproval details page form fields
@@ -23,7 +23,7 @@ Feature: PreApproval feature
       |1               |John Smith    |1                  |Purchase a Home |560236            |32626       |5                   |527610       |Other type of Down Payment                      |20000             |
 
 
-  @nino @smoke
+  @nino
   Scenario Outline: The realtor_status and loan_officer column values should be stored as integer values
     Given the user is on the PreApproval details page
     When the user marks checkboxes related as "<realtor_status_checkbox>" and "<loan_officer_status_checkbox>" sections in PreApproval details page
@@ -33,7 +33,7 @@ Feature: PreApproval feature
       |yes                       |yes                         |1                |  1                 |
       |no                        |no                          |2                |  2                 |
 
-  @nino @nino1
+  @nino @smoke
   Scenario: The realtor_info, purpose_loan and src_down_payment column values should be stored as String values - Create and Read
     Given the user is on the PreApproval details page
     When the user enters the following information in the realtor_info, purpose_loan and src_down_payment columns in PreApproval details page
@@ -74,7 +74,7 @@ Feature: PreApproval feature
       |yes                       |Bill Wallace |1                |
 
 
-  @nino
+  @nino @smoke
   Scenario Outline: Verify that purpose_loan field is not empty and contains valid loan purpose given in the dropdown options
     When  The user selects one of the "<purpose_loan>" options
     Then  The result should not be empty "<purpose_loan>":

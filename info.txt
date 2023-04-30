@@ -1,21 +1,28 @@
 Distribution of user stories:
-user story 1 -- Slava
+user story 1 -- Dania
 user story 2 -- Nino
-user story 3 -- Dania
-user story 4 -- Malika & Sohiba
+user story 3 -- Nino & Dania
+user story 4 -- Malika
 user story 5 -- Anar
-user story 6 -- Derya & Shirina
+user story 6 -- Derya
+user story 7 --  Shirina
+user story 8 -- Sohiba
+user story 9 -- Slava
+
 
 
 Attention team members!!!
 - you WON'T need to create your feature file under resources, it is already created, please make sure to work on your
 own feature file:
-user story 1 -- sign-up.feature
-user story 2 -- pre-approval.feature
-user story 3 -- personal-info.feature
-user story 4 -- expenses-page.feature
-user story 5 -- employment-income.feature
-user story 6 -- submit-application.feature
+user story 1 -- getUsers.feature
+user story 2 -- getUser.feature
+user story 3 -- postUser.feature
+user story 4 -- putUser.feature
+user story 5 -- patchUser.feature
+user story 6 -- deleteUser.feature
+user story 7 -- postLogin.feature
+user story 8 -- getApplications.feature
+user story 9 -- getApplication.feature
 
 
 - once you are in your feature file, start creating scenarios using Given When Then structure (case sensitive), then
