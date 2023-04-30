@@ -13,7 +13,7 @@ user story 9 -- Slava
 
 Attention team members!!!
 - you WON'T need to create your feature file under resources, it is already created, please make sure to work on your
-own feature file:
+own feature file
 user story 1 -- getUsers.feature
 user story 2 -- getUser.feature
 user story 3 -- postUser.feature
