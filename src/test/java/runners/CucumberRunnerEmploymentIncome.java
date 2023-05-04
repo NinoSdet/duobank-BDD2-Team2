@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources", // the path where all feature files are located
         glue = "stepDefinitions", // path where all step definition classes are located
-//        stepNotifications = true,  // to display detailed step results
+        stepNotifications = true,  // to display detailed step results
         plugin = {
                 "pretty", // adds more detailed output log in the cmd console
                 "html:target/basic-report/report.html"  // to generate a basic built-in report

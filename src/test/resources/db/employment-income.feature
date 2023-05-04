@@ -72,3 +72,58 @@ Then It should be the following
       | employer_name    | position    | city           | state     | start_date   |gross_monthly_income| monthly_over_time| monthly_bonuses|monthly_commissions| monthly_dividents|
       | CapitalOne       | SDET        | Anaheim        | CA        | 01/10/2009   |8000.65             | 1500.84          | 2200.54        |3500.20            | 5600.50          |
 
+
+  @AnarDb
+  Scenario: Verify the content of states column
+    When I send a request to retrieve the content of states column
+    Then It should be the following
+      |   AL     |
+      |   AK     |
+      |   AZ     |
+      |   AR     |
+      |   CA     |
+      |   CO     |
+      |   CT     |
+      |   DE     |
+      |   FL     |
+      |   GA     |
+      |   HI     |
+      |   ID     |
+      |   IL     |
+      |   IN     |
+      |   IA     |
+      |   KS     |
+      |   KY     |
+      |   LA     |
+      |   ME     |
+      |   MD     |
+      |   MA     |
+      |   MI     |
+      |   MN     |
+      |   MS     |
+      |   MO     |
+      |   MT     |
+      |   NE     |
+      |   NV     |
+      |   NH     |
+      |   NJ     |
+      |   NM     |
+      |   NY     |
+      |   NC     |
+      |   ND     |
+      |   OH     |
+      |   OK     |
+      |   OR     |
+      |   PA     |
+      |   RI     |
+      |   SC     |
+      |   SD     |
+      |   TN     |
+      |   TX     |
+      |   UT     |
+      |   VT     |
+      |   VA     |
+      |   WA     |
+      |   WV     |
+      |   WI     |
+      |   WY     |
